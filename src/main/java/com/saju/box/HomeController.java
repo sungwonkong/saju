@@ -64,10 +64,10 @@ public class HomeController {
 		
 		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView("jsonView");
-		logger.info("ksw::::" + (String) session.getAttribute("teacherId"));
+		
 		//技记蔼 犬牢
 		if((String) session.getAttribute("teacherId") == null) {
-			mv.setViewName("admin/login");
+			mv.setViewName("redirect:admin/login");
 			return mv;
 		}		
 		//技记蔼 悸泼
@@ -83,21 +83,21 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/login", method = RequestMethod.GET)
 	public ModelAndView login(HttpServletRequest request, Locale locale, Model model) {
 		ModelAndView mv = new ModelAndView("jsonView");
 		mv.setViewName("admin/login");
 		return mv;		
 	}
 	
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	@RequestMapping(value = "admin/logout", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request, Locale locale, Model model) {
 		ModelAndView mv = new ModelAndView("jsonView");
 		//技记 昏力
 		HttpSession session = request.getSession();
         session.invalidate();
 
-		mv.setViewName("redirect:login");
+		mv.setViewName("redirect:/admin/login");
 		return mv;		
 	}
 	

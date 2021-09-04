@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
+<!-- Main Footer -->
 <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.0-alpha
-    </div>
-    <strong>Copyright &copy; 2014-2018 <a href="/admin">sajubox.co</a>.</strong> All rights
-    reserved.
-  </footer>
- 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
+  <!-- To the right -->
+  <div class="float-right d-none d-sm-inline">
+    
+  </div>
+  <!-- Default to the left -->
+  <strong>Copyright &copy; 2021 <a href="https://adminlte.io">SAJUBOX.Co</a>.</strong> All rights reserved.
+</footer>

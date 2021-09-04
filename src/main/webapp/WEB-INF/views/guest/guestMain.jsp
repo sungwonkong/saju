@@ -82,10 +82,10 @@
 		</div>
 		
 		<!-- Main Footer -->
-		<footer class="main-footer orderGubun" style="margin-left:0px;">        
+		<div class="main-footer orderGubun" style="margin-left:10px;margin-top:98%">        
 		<!-- Default to the left -->
 			<strong>Copyright &copy; 2021 <a style="color:#007bff;">SAJUBOX</a></strong> All rights reserved.
-		</footer>
+		</div>
 		
 	</div>	
 </section>

@@ -1,5 +1,7 @@
 package com.saju.box.controller;
 
+import java.util.Locale;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +25,7 @@ public class AdminController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
-	@RequestMapping(value = "/getLogin.json", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/getLogin.json", method = RequestMethod.POST)
 	@ResponseBody 
 	public ModelAndView getLoginInfo(HttpServletRequest request, LoginDto loginDto) throws Exception{
 		//logger.info("ksw:::::::getLogin "+ loginDto.getTeacherId());
@@ -54,6 +57,21 @@ public class AdminController {
 			logger.error(e.toString());
 		}
 
+		return mv;
+	}
+	
+	@RequestMapping(value = "/admin/consult", method = RequestMethod.GET)
+	public ModelAndView consult(HttpServletRequest request, Locale locale, Model model) {
+		HttpSession session = request.getSession();
+		ModelAndView mv = new ModelAndView("jsonView");
+		
+		//세션값 확인
+		if((String) session.getAttribute("teacherId") == null) {
+			mv.setViewName("redirect:/admin/login");
+			return mv;
+		}	
+		
+		mv.setViewName("admin/consult");
 		return mv;
 	}
 	

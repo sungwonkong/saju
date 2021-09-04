@@ -76,7 +76,7 @@ function login(){
 	var pw = $('#inputPw').val();
 		
 	$.ajax({
-        url: "getLogin.json",
+        url: "/admin/getLogin.json",
         type: "POST",
         dataType: 'json',  //json파일 형식으로 값 받기
         data: {
