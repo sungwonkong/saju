@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.saju.box.orderMapper">
+
+	<insert id="saveOrder">
+		insert into TB_SAJU_ORDER(order_no, order_dt, order_gubun, order_gender, order_name, order_luna_yn, order_year, order_month, order_day, order_hour, order_min, reg_dtm, reg_id, mod_dtm, mod_id, complete_yn)
+		values(
+			#{orderNo}
+		  , DATE_FORMAT(now(),'%Y%m%d')
+		  , #{orderGubun}
+		  , #{orderGender}
+		  , #{orderName}
+		  , #{orderLunaYn}
+		  , #{orderYear}
+		  , #{orderMonth}
+		  , #{orderDay}
+		  , #{orderHour}
+		  , #{orderMin}
+		  , now()
+		  , 'guest'
+		  , now()
+		  , 'guest'
+		  , 'N'
+		)
+	</insert>
+
+</mapper>

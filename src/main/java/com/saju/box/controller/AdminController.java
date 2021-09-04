@@ -1,0 +1,60 @@
+package com.saju.box.controller;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.saju.box.model.LoginDto;
+import com.saju.box.service.AdminService;
+
+@Controller
+public class AdminController {
+	@Inject
+	private AdminService adminService;
+	
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+	
+	@RequestMapping(value = "/getLogin.json", method = RequestMethod.POST)
+	@ResponseBody 
+	public ModelAndView getLoginInfo(HttpServletRequest request, LoginDto loginDto) throws Exception{
+		//logger.info("ksw:::::::getLogin "+ loginDto.getTeacherId());
+		ModelAndView mv = new ModelAndView("jsonView");
+		HttpSession session = request.getSession();
+		//로그인 정보 받아오기
+		try {
+			LoginDto loginDtoResult = adminService.getLoginInfo(loginDto);
+			
+			if(loginDtoResult == null){
+				//맞는 정보가 없는경우			
+				mv.addObject("code","1");
+				mv.addObject("msg","맞는 정보가 없습니다.");
+				//mv.setViewName("/login");
+			}else {
+				//로그인 세션 구현				
+				session.setAttribute("compNo", loginDtoResult.getCompNo());		
+				session.setAttribute("compName", loginDtoResult.getCompName());
+				session.setAttribute("teacherNo", loginDtoResult.getTeacherNo());
+				session.setAttribute("teacherNm", loginDtoResult.getTeacherNm());
+				session.setAttribute("teacherId", loginDtoResult.getTeacherId());
+				session.setAttribute("reprYn", loginDtoResult.getReprYn());
+				
+				mv.addObject("code","0");
+				mv.addObject("msg","로그인 성공");
+
+			}	
+		}catch(Exception e) {
+			logger.error(e.toString());
+		}
+
+		return mv;
+	}
+	
+}
