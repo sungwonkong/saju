@@ -1,0 +1,21 @@
+body {
+	font-family: 'bamin';
+}
+
+.sajuTable{
+	text-align:center;
+	
+}
+
+.sajuTable > tbody{
+	height:30px;	
+}
+
+.sajuTable > tbody{	
+	vertical-align : middle;
+}
+
+.seachTable{
+	text-align:center;
+	vertical-align:middle;
+}

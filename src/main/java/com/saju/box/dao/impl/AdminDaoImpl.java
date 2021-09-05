@@ -1,5 +1,7 @@
 package com.saju.box.dao.impl;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.saju.box.dao.AdminDao;
 import com.saju.box.model.LoginDto;
+import com.saju.box.model.OrderDto;
 
 @Repository
 public class AdminDaoImpl implements AdminDao{
@@ -23,5 +26,11 @@ public class AdminDaoImpl implements AdminDao{
 		logger.info("start AdminDaoImpl.getLoginInfo!!");
 		
 		return sqlSession.selectOne(NS+".login",loginDto);
+	}
+
+	@Override
+	public List<OrderDto> getOrderList(OrderDto orderDto) {
+		logger.info("start AdminDaoImpl.getOrderList!!");
+		return sqlSession.selectList(NS+".getOrderList", orderDto);
 	}
 }

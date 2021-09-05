@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class OrderDto implements Serializable {
 	String orderNo;			//오더번호
+	String compNo;			//사주카페 번호
 	String orderGubun;		//오더구분(S:사주, T:타로)
 	String orderName;		//이름
 	String orderYear;		//출생년도
@@ -13,6 +14,8 @@ public class OrderDto implements Serializable {
 	String orderMin;		//출생분
 	String orderGender;		//남성(M),여성(F)
 	String orderLunaYn;		//음력여부 Y:음력
+	String orderDt;			//상담일자
+	String regDtm;			//상담일자(시간분까지)
 		
 	String userId;
 	String completeYn;
@@ -24,6 +27,12 @@ public class OrderDto implements Serializable {
 	}
 	public void setOrderNo(String orderNo) {
 		this.orderNo = orderNo;
+	}	
+	public String getCompNo() {
+		return compNo;
+	}
+	public void setCompNo(String compNo) {
+		this.compNo = compNo;
 	}
 	public String getOrderName() {
 		return orderName;
@@ -104,5 +113,18 @@ public class OrderDto implements Serializable {
 	public void setOrderGubun(String orderGubun) {
 		this.orderGubun = orderGubun;
 	}
+	public String getOrderDt() {
+		return orderDt;
+	}
+	public void setOrderDt(String orderDt) {
+		this.orderDt = orderDt;
+	}
+	public String getRegDtm() {
+		return regDtm;
+	}
+	public void setRegDtm(String regDtm) {
+		this.regDtm = regDtm;
+	}
+	
 	
 }

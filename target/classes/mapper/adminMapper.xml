@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.saju.box.adminMapper">
-
+	<!-- 로그인 정보 가져오기 -->
 	<select id="login" resultType="com.saju.box.model.LoginDto">
+		/*com.saju.box.adminMapper.login*/
 		select 
 			B.comp_no		as compNo
 		  , B.comp_name 	as compName
@@ -15,6 +16,26 @@
 		inner join TB_COMP B on A.comp_no = B.comp_no 
 		where A.teacher_id = #{teacherId}
 		and A.pwd = #{pwd}
+	</select>
+	
+	<select id="getOrderList" resultType="com.saju.box.model.OrderDto">
+		/*com.saju.box.adminMapper.getOrderList*/
+		select 
+			order_no
+		  , comp_no
+		  , order_dt
+		  , order_gubun 
+		  , order_gender 
+		  , order_name 
+		  , order_year 
+		  , order_month
+		  , order_day 
+		  , order_hour 
+		  , order_min
+		  , reg_dtm 
+		from TB_SAJU_ORDER so
+		where so.comp_no = #{compNo}
+		order by reg_dtm desc
 	</select>
 
 </mapper>

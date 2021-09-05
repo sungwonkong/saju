@@ -101,6 +101,8 @@
 var compNo;
 var orderGubun = '';
 
+compNo = 'A0001';
+
 $(document).ready(function() {
     
 	 $.ajax({
@@ -108,7 +110,7 @@ $(document).ready(function() {
 	        type: "POST",
 	        dataType: 'json',  //json파일 형식으로 값 받기
 	        data: {
-	        	compNo:'A0001'
+	        	compNo : compNo
 	        },
 	        success: function(result){
 	        	//alert(res.code);
@@ -221,6 +223,7 @@ function saveOrder(){
 	        dataType: 'json',  //json파일 형식으로 값 받기
 	        data: {
 	        	orderNo : orderNo,
+	        	compNo : compNo,
 	        	orderGubun : orderGubun,
 	        	orderName : orderName,
 	        	orderYear : year,

@@ -10,6 +10,4 @@
 <!-- Amdin 공통 JS -->
 <script src="/resources/js/admin.js"></script>
 
-<script type="text/javascript"> 
-	//adminJs.alertTest();
-</script>
+<script src="https://uicdn.toast.com/grid/latest/tui-grid.js"></script>

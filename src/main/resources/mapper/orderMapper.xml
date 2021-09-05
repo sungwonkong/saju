@@ -4,9 +4,10 @@
 <mapper namespace="com.saju.box.orderMapper">
 
 	<insert id="saveOrder">
-		insert into TB_SAJU_ORDER(order_no, order_dt, order_gubun, order_gender, order_name, order_luna_yn, order_year, order_month, order_day, order_hour, order_min, reg_dtm, reg_id, mod_dtm, mod_id, complete_yn)
+		insert into TB_SAJU_ORDER(order_no, comp_no, order_dt, order_gubun, order_gender, order_name, order_luna_yn, order_year, order_month, order_day, order_hour, order_min, reg_dtm, reg_id, mod_dtm, mod_id, complete_yn)
 		values(
 			#{orderNo}
+		  , #{compNo}
 		  , DATE_FORMAT(now(),'%Y%m%d')
 		  , #{orderGubun}
 		  , #{orderGender}

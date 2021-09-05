@@ -15,6 +15,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="/resources/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="/resources/dist/css/adminlte.css">
   <link rel="stylesheet" href="/resources/plugins/jsgrid/jsgrid.css">
-  <link rel="stylesheet" href="/resources/plugins/jsgrid/jsgrid-theme.css">
-  
+  <link rel="stylesheet" href="/resources/plugins/jsgrid/jsgrid-theme.css">  
+  <link rel="stylesheet" href="/resources/css/sajuBackOffice.css">
+  <style type="text/css">
+  	td{
+  		vertical-align:middle;
+  	}
+  </style>  
 </head>

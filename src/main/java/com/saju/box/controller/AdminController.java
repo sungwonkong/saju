@@ -1,5 +1,6 @@
 package com.saju.box.controller;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.saju.box.model.LoginDto;
+import com.saju.box.model.OrderDto;
 import com.saju.box.service.AdminService;
 
 @Controller
@@ -25,6 +27,13 @@ public class AdminController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
+	/**
+	 * 로그인
+	 * @param request
+	 * @param loginDto
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/admin/getLogin.json", method = RequestMethod.POST)
 	@ResponseBody 
 	public ModelAndView getLoginInfo(HttpServletRequest request, LoginDto loginDto) throws Exception{
@@ -74,5 +83,26 @@ public class AdminController {
 		mv.setViewName("admin/consult");
 		return mv;
 	}
+	/**
+	 * 상담관리 > 검색
+	 * @param companyInfoDto
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/admin/getOrderList.json", method = RequestMethod.POST)
+	@ResponseBody 
+	public ModelAndView  getOrderList(HttpServletRequest request, Model model, OrderDto orderDto) throws Exception{
+		
+		ModelAndView mv = new ModelAndView("jsonView");
+		logger.info(orderDto.getCompNo());
+		List<OrderDto> result = adminService.getOrderList(orderDto);
+		
+		
+		mv.addObject("code", "0");
+		mv.addObject("totalCnt", result.size());
+		mv.addObject("list", result);	//오더리스트
+		
+		return mv;	  
+	  }
 	
 }
