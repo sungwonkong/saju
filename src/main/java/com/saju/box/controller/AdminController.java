@@ -103,6 +103,20 @@ public class AdminController {
 		mv.addObject("list", result);	//오더리스트
 		
 		return mv;	  
-	  }
+	}
 	
+	@RequestMapping(value = "/admin/getOrderDetail.json", method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView  getOrderDetail(HttpServletRequest request, Model model, OrderDto orderDto) throws Exception{
+		
+		ModelAndView mv = new ModelAndView("jsonView");
+		//logger.info(orderDto.getCompNo());
+		OrderDto result = adminService.getOrderDetail(orderDto);
+		
+		
+		mv.addObject("code", "0");		
+		mv.addObject("list", result);	//오더디테일
+		
+		return mv;	  
+	}
 }

@@ -31,4 +31,10 @@ public class AdminServiceImpl implements AdminService {
 		logger.info("START AdminServiceImpl.getOrderList!!!!");
 		return adminDao.getOrderList(orderDto);
 	}
+
+	@Override
+	public OrderDto getOrderDetail(OrderDto orderDto) {
+		logger.info("START AdminServiceImpl.getOrderDetail!!!!");
+		return adminDao.getOrderDetail(orderDto);
+	}
 }

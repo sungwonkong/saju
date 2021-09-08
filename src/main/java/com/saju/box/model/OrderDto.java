@@ -22,6 +22,9 @@ public class OrderDto implements Serializable {
 	String namingYn;
 	String remark;
 	
+	int orderAmt;			//상담금액(이름값 제외)
+	int namingAmt;			//작명금액
+	
 	public String getOrderNo() {
 		return orderNo;
 	}
@@ -125,6 +128,20 @@ public class OrderDto implements Serializable {
 	public void setRegDtm(String regDtm) {
 		this.regDtm = regDtm;
 	}
+	public int getOrderAmt() {
+		return orderAmt;
+	}
+	public void setOrderAmt(int orderAmt) {
+		this.orderAmt = orderAmt;
+	}
+	public int getNamingAmt() {
+		return namingAmt;
+	}
+	public void setNamingAmt(int namingAmt) {
+		this.namingAmt = namingAmt;
+	}
+	
+	
 	
 	
 }

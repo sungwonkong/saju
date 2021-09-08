@@ -12,4 +12,6 @@ public interface AdminDao {
 	public LoginDto getLoginInfo(LoginDto logindto);
 	
 	public List<OrderDto> getOrderList(OrderDto orderDto);
+	
+	public OrderDto getOrderDetail(OrderDto orderDto);
 }

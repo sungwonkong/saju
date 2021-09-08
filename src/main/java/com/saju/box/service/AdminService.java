@@ -9,4 +9,6 @@ public interface AdminService {
 	public LoginDto getLoginInfo(LoginDto loginDto);
 	
 	public List<OrderDto> getOrderList(OrderDto orderDto);
+	
+	public OrderDto getOrderDetail(OrderDto orderDto);
 }

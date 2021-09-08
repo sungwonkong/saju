@@ -77,13 +77,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
- 
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+      Launch Default Modal
+    </button>
+ 	<jsp:include page="consultDetail.jsp"/>	
   </div>
   <!-- /.content-wrapper -->
-  
+  <jsp:include page="../include/footer.jsp"/>  
 </div>
-<jsp:include page="../include/footer.jsp"/>
-
 
 <script>
 
@@ -155,7 +156,7 @@ function makeData(list){
 				 + '<td style="vertical-align:middle">' + birthDay + '</td>'
 				 + '<td style="vertical-align:middle">' + birthHourMin + '</td>'
 				 + '<td style="vertical-align:middle">' + value.regDtm + '</td>'
-				 + '<td style="vertical-align:middle">' + '<button type="button" class="btn btn-block bg-gradient-success" onclick="openDetail(\'' + value.orderNo + '\')">자세히</button>' + '</td>'
+				 + '<td style="vertical-align:middle">' + '<button type="button" data-toggle="modal" data-target="#modal-default" data-orderno="' + value.orderNo + '" class="btn btn-block bg-gradient-success" onclick="openDetail(\'' + value.orderNo + '\')">자세히</button>' + '</td>'
 				 + '</tr>';
 		}else{
 			html = html + '<tr style="background-color:#fdf1e2">'
@@ -165,7 +166,7 @@ function makeData(list){
 			 + '<td>' + '' + '</td>'
 			 + '<td>' + '' + '</td>'
 			 + '<td style="vertical-align:middle">' + value.regDtm + '</td>'
-			 + '<td style="vertical-align:middle">' + '<button type="button" class="btn btn-block bg-gradient-success" onclick="openDetail(\'' + value.orderNo + '\')">자세히</button>' + '</td>'
+			 + '<td style="vertical-align:middle">' + '<button type="button"  data-toggle="modal" data-target="#modal-default" data-orderno="' + value.orderNo + '" class="btn btn-block bg-gradient-success" onclick="openDetail(\'' + value.orderNo + '\')">자세히</button>' + '</td>'
 			 + '</tr>';
 		}
 		
@@ -175,7 +176,7 @@ function makeData(list){
 }
 
 function openDetail(orderNo){
-	alert(orderNo);
+
 }
 
 </script>

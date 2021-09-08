@@ -33,4 +33,10 @@ public class AdminDaoImpl implements AdminDao{
 		logger.info("start AdminDaoImpl.getOrderList!!");
 		return sqlSession.selectList(NS+".getOrderList", orderDto);
 	}
+
+	@Override
+	public OrderDto getOrderDetail(OrderDto orderDto) {
+		logger.info("start AdminDaoImpl.getOrderDetail!!");
+		return sqlSession.selectOne(NS+".getOrderDetail", orderDto); 
+	}
 }
